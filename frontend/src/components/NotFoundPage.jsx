@@ -4,17 +4,6 @@ import Navbar from "./Navbar";
 
 function NotFoundPage() {
   return (
-    // <div className="h-full w-full bg-black">
-    //   <Navbar />
-    //   <div className="min-h-screen text-white bg-black flex flex-col items-center justify-start mt-40 gap-10">
-    //     <h1 className="text-5xl font-semibold ">404 Page not found</h1>
-    //     <Link to="/" className="flex items-center text-gray-700 gap-3">
-    //       <ArrowLeftIcon size={30} className="mt-1" />
-    //       <span className="text-2xl hover:underline">Go back to Home</span>
-    //     </Link>
-    //   </div>
-    // </div>
-
     <div
       className="min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-white"
       style={{ backgroundImage: `url("/404.png")` }}
