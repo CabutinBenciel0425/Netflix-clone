@@ -9,7 +9,7 @@ import Button from "../components/Button";
 
 function SignupPage() {
   const { state: emailStarted } = useLocation();
-  const { signup } = useAuthStore();
+  const { signup, isSigningUp } = useAuthStore();
 
   const [email, setEmail] = useState(emailStarted || "");
   const [username, setUsername] = useState("");
@@ -90,7 +90,7 @@ function SignupPage() {
             </div>
 
             <Button from="signup" type="submit">
-              Sign up
+              {!isSigningUp ? "Sign up" : "Creating account..."}
             </Button>
           </form>
 

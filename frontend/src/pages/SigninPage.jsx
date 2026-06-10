@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import { useAuthStore } from "../store/authUser";
 
 function SigninPage() {
-  const { signin } = useAuthStore();
+  const { signin, isSigningIn } = useAuthStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -68,7 +68,7 @@ function SigninPage() {
             </div>
 
             <Button from="signup" type="submit">
-              Sign in
+              {!isSigningIn ? "Sign in" : "Loading..."}
             </Button>
           </form>
 

@@ -16,6 +16,7 @@ import NotFoundPage from "./components/NotFoundPage";
 import SearchPage from "./pages/SearchPage";
 import HistoryPage from "./pages/HistoryPage";
 import ArtistsPage from "./pages/ArtistsPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const { user, isCheckingAuth } = useAuthStore();
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -43,25 +45,30 @@ function App() {
         />
         <Route
           path="/watch/:type/:id"
-          element={user ? <WatchPage /> : <Navigate to={"/login"} />}
+          element={user ? <WatchPage /> : <Navigate to={"/sign-in"} />}
         />
 
         <Route
           path="/search"
-          element={user ? <SearchPage /> : <Navigate to={"/login"} />}
+          element={user ? <SearchPage /> : <Navigate to={"/sign-in"} />}
         />
 
         <Route
           path="/artist/:id"
-          element={user ? <ArtistsPage /> : <Navigate to={"/login"} />}
+          element={user ? <ArtistsPage /> : <Navigate to={"/sign-in"} />}
         />
 
         <Route
           path="/history"
-          element={user ? <HistoryPage /> : <Navigate to={"/login"} />}
+          element={user ? <HistoryPage /> : <Navigate to={"/sign-in"} />}
         />
 
-        <Route path="*" element={<Navigate to="/404" replace />} />
+        <Route
+          path="*"
+          element={
+            user ? <Navigate to="/404" replace /> : <Navigate to={"/sign-in"} />
+          }
+        />
         <Route path="/404" element={<NotFoundPage />} />
       </Routes>
       <Footer />

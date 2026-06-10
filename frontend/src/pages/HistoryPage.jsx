@@ -48,10 +48,10 @@ function HistoryPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {history?.map((entry) => (
             <div
-              className="bg-gray-800 p-4 rounded flex items-start"
+              className="bg-gray-800 p-4 rounded flex items-start min-w-75"
               key={entry.id}
             >
               <img
@@ -77,8 +77,9 @@ function HistoryPage() {
               </span>
 
               <Trash
-                className="size-5 ml-4 cursor-pointer hover:fill-red-600 hover:text-red-600"
+                className="ml-4 w-6 h-6 shrink-0 cursor-pointer hover:fill-red-600 hover:text-red-600"
                 onClick={() => handleDelete(entry.id)}
+                size={24}
               />
             </div>
           ))}
